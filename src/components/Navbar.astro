@@ -7,6 +7,7 @@ const links = [
   { href: "/academy", label: "Academy" },
   { href: "/about", label: "About" },
 ];
+
 const path = Astro.url.pathname;
 ---
 
@@ -20,6 +21,7 @@ const path = Astro.url.pathname;
         <span>TradeAnchor AI</span>
       </a>
 
+      <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-1">
         {links.map((l) => (
           <a
@@ -37,11 +39,90 @@ const path = Astro.url.pathname;
       <div class="flex items-center gap-2">
         <a
           href="/waitlist"
-          class="rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition"
+          class="hidden sm:inline-flex rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition"
         >
           Join Waitlist
         </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuBtn"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-neutral-200 hover:bg-white/10 transition"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open menu</span>
+          <span id="menuIcon">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div
+      id="mobileMenu"
+      class="md:hidden hidden pb-4"
+    >
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-2">
+        <nav class="flex flex-col">
+          {links.map((l) => (
+            <a
+              href={l.href}
+              class:list={[
+                "rounded-xl px-3 py-2 text-sm transition",
+                path === l.href ? "bg-white/10 text-white" : "text-neutral-300 hover:bg-white/5 hover:text-white",
+              ]}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="/waitlist"
+            class="mt-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition"
+          >
+            Join Waitlist
+          </a>
+        </nav>
       </div>
     </div>
   </div>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    const icon = document.getElementById("menuIcon");
+
+    function closeMenu() {
+      menu.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+      icon.textContent = "☰";
+    }
+
+    btn?.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeMenu();
+      } else {
+        menu.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        icon.textContent = "✕";
+      }
+    });
+
+    // Close on route change / link click
+    menu?.addEventListener("click", (e) => {
+      const a = e.target?.closest("a");
+      if (a) closeMenu();
+    });
+
+    // Close on escape
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Close when resizing up to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) closeMenu(); // md breakpoint
+    });
+  </script>
 </header>

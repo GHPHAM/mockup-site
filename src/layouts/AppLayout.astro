@@ -1,7 +1,8 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import AppShell from "../components/app/AppShell.astro";
 import Footer from "../components/Footer.astro";
+import '../styles/global.css';
 
 const { title = "TradeAnchor AI — App" } = Astro.props;
 ---
@@ -12,7 +13,7 @@ const { title = "TradeAnchor AI — App" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body class="">
