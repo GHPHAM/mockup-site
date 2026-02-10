@@ -1,0 +1,9 @@
+---
+const { label, value, hint } = Astro.props;
+---
+
+<div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+  <p class="text-xs text-neutral-400">{label}</p>
+  <p class="mt-2 text-2xl font-semibold">{value}</p>
+  {hint ? <p class="mt-1 text-xs text-neutral-500">{hint}</p> : null}
+</div>

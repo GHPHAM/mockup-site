@@ -1,0 +1,42 @@
+---
+const path = Astro.url.pathname;
+
+const items = [
+  { href: "/app", label: "Dashboard", icon: "📊" },
+  { href: "/app/recommendations", label: "Recommendations", icon: "⭐" },
+  { href: "/app/order-builder", label: "Order Builder", icon: "🧾" },
+  { href: "/app/portfolio", label: "Portfolio", icon: "💼" },
+  { href: "/app/audit", label: "Audit Trail", icon: "🧩" },
+];
+---
+
+<nav class="rounded-3xl border border-white/10 bg-white/5 p-3 lg:sticky lg:top-3">
+  <a href="/" class="mb-3 flex items-center gap-2 rounded-2xl px-3 py-2 hover:bg-white/5 transition" transition:name="brand">
+    <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/20 ring-1 ring-sky-400/30">⚓</span>
+    <div class="leading-tight">
+      <p class="font-semibold">TradeAnchor AI</p>
+      <p class="text-xs text-neutral-400">App mockup</p>
+    </div>
+  </a>
+
+  <div class="space-y-1">
+    {items.map((it) => (
+      <a
+        href={it.href}
+        class:list={[
+          "flex items-center gap-2 rounded-2xl px-3 py-2 text-sm transition",
+          path === it.href ? "bg-white/10 text-white" : "text-neutral-300 hover:bg-white/5 hover:text-white",
+        ]}
+      >
+        <span class="w-5 text-center">{it.icon}</span>
+        <span>{it.label}</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="mt-4 rounded-2xl bg-neutral-950/40 p-3 ring-1 ring-white/10">
+    <p class="text-xs text-neutral-400">Broker</p>
+    <p class="mt-1 text-sm">Linked: <span class="text-sky-300">Demo Brokerage</span></p>
+    <p class="mt-1 text-xs text-neutral-500">Read-only mock data</p>
+  </div>
+</nav>

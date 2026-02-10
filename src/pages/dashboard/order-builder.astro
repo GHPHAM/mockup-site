@@ -1,0 +1,12 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import OrderTicket from "../../components/app/OrderTicket.astro";
+import AuditTable from "../../components/app/AuditTable.astro";
+---
+
+<AppLayout title="TradeAnchor AI — Order Builder">
+  <div class="grid gap-3 lg:grid-cols-2">
+    <OrderTicket />
+    <AuditTable />
+  </div>
+</AppLayout>

@@ -1,0 +1,59 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import StatCard from "../../components/app/StatCard.astro";
+import TickerRow from "../../components/app/TickerRow.astro";
+---
+
+<AppLayout title="TradeAnchor AI — Dashboard">
+  <div class="grid gap-3 lg:grid-cols-3">
+    <StatCard label="Today’s ranked picks" value="12" hint="Mock daily feed" />
+    <StatCard label="Pending anchors" value="5" hint="Draft + placed (mock)" />
+    <StatCard label="Volatility alert" value="Moderate" hint="Auto buffers enabled" />
+  </div>
+
+  <div class="mt-3 grid gap-3 lg:grid-cols-2">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+      <h2 class="text-lg font-semibold">Top recommendations</h2>
+      <p class="mt-1 text-sm text-neutral-400">Ranked for long-term accumulation (mock)</p>
+
+      <div class="mt-4 space-y-2">
+        <TickerRow t="MSFT" rating="9.1" price="$402" anchor="$392" note="High quality accumulation; strong cashflows" />
+        <TickerRow t="AAPL" rating="8.8" price="$196" anchor="$189" note="Mean-reversion entry; resilient demand" />
+        <TickerRow t="NVDA" rating="8.4" price="$620" anchor="$588" note="Volatility-aware anchoring; trend intact" tag="WATCH" />
+      </div>
+
+      <a class="mt-4 inline-flex text-sm text-sky-300 hover:text-sky-200" href="/app/recommendations">
+        View full feed →
+      </a>
+    </div>
+
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+      <h2 class="text-lg font-semibold">Anchor status</h2>
+      <p class="mt-1 text-sm text-neutral-400">What the engine would manage for you (mock)</p>
+
+      <div class="mt-4 space-y-2">
+        <div class="rounded-2xl bg-neutral-950/40 p-4 ring-1 ring-white/10">
+          <div class="flex items-center justify-between">
+            <p class="font-medium">MSFT</p>
+            <span class="text-xs rounded-full bg-white/10 px-2 py-1 text-neutral-300">PENDING</span>
+          </div>
+          <p class="mt-1 text-sm text-neutral-400">Anchor limit: <span class="text-sky-300">$392.00</span></p>
+          <p class="mt-1 text-xs text-neutral-500">Last adjusted: 09:31 • Reason: support shifted</p>
+        </div>
+
+        <div class="rounded-2xl bg-neutral-950/40 p-4 ring-1 ring-white/10">
+          <div class="flex items-center justify-between">
+            <p class="font-medium">AAPL</p>
+            <span class="text-xs rounded-full bg-white/10 px-2 py-1 text-neutral-300">DRAFT</span>
+          </div>
+          <p class="mt-1 text-sm text-neutral-400">Anchor limit: <span class="text-sky-300">$189.00</span></p>
+          <p class="mt-1 text-xs text-neutral-500">Not placed • Needs review</p>
+        </div>
+      </div>
+
+      <a class="mt-4 inline-flex text-sm text-sky-300 hover:text-sky-200" href="/app/order-builder">
+        Create / adjust anchors →
+      </a>
+    </div>
+  </div>
+</AppLayout>

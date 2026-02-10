@@ -1,0 +1,31 @@
+---
+const titleMap = {
+  "/app": "Dashboard",
+  "/app/recommendations": "Recommendations",
+  "/app/order-builder": "Anchor Order Builder",
+  "/app/portfolio": "Portfolio",
+  "/app/audit": "Audit Trail",
+};
+
+const path = Astro.url.pathname;
+const title = titleMap[path] ?? "App";
+---
+
+<div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h1 class="text-xl font-semibold tracking-tight" transition:name="appTitle">{title}</h1>
+      <p class="text-sm text-neutral-400">Proof-of-concept UI (static mock)</p>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <input
+        class="w-full sm:w-64 rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+        placeholder="Search tickers…"
+      />
+      <a href="/waitlist" class="rounded-2xl bg-sky-500 px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition">
+        Upgrade
+      </a>
+    </div>
+  </div>
+</div>

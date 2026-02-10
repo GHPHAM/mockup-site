@@ -1,0 +1,41 @@
+---
+const rows = [
+  { ts: "2026-02-09 09:31", t: "MSFT", field: "Anchor limit", from: "$394.00", to: "$392.00", why: "Support moved down; vol stable" },
+  { ts: "2026-02-09 09:31", t: "AAPL", field: "Anchor limit", from: "$191.00", to: "$189.00", why: "Mean reversion band widened" },
+  { ts: "2026-02-09 09:32", t: "NVDA", field: "Safety limit", from: "$592.00", to: "$588.00", why: "Vol expanded; safety buffer increased" },
+];
+---
+
+<div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+  <div class="flex items-center justify-between">
+    <h2 class="text-lg font-semibold">Audit Trail</h2>
+    <span class="text-xs text-neutral-500">Concept: every adjustment is explained</span>
+  </div>
+
+  <div class="mt-4 overflow-x-auto">
+    <table class="w-full text-left text-sm">
+      <thead class="text-xs text-neutral-400">
+        <tr>
+          <th class="py-2 pr-3">Time</th>
+          <th class="py-2 pr-3">Ticker</th>
+          <th class="py-2 pr-3">Field</th>
+          <th class="py-2 pr-3">From</th>
+          <th class="py-2 pr-3">To</th>
+          <th class="py-2">Reason</th>
+        </tr>
+      </thead>
+      <tbody class="text-neutral-200">
+        {rows.map((r) => (
+          <tr class="border-t border-white/10">
+            <td class="py-3 pr-3 text-neutral-400">{r.ts}</td>
+            <td class="py-3 pr-3 font-medium">{r.t}</td>
+            <td class="py-3 pr-3">{r.field}</td>
+            <td class="py-3 pr-3 text-neutral-400">{r.from}</td>
+            <td class="py-3 pr-3 text-sky-300">{r.to}</td>
+            <td class="py-3">{r.why}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+---
+const tickers = ["MSFT", "AAPL", "NVDA", "AMZN", "GOOGL"];
+---
+
+<div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+  <h2 class="text-lg font-semibold">Order Ticket</h2>
+  <p class="mt-1 text-sm text-neutral-400">Mock workflow: pick ticker → choose goal → generate anchor limits.</p>
+
+  <div class="mt-5 grid gap-3 sm:grid-cols-2">
+    <div>
+      <label class="text-xs text-neutral-400">Ticker</label>
+      <select class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-2 text-sm">
+        {tickers.map((x) => <option>{x}</option>)}
+      </select>
+    </div>
+
+    <div>
+      <label class="text-xs text-neutral-400">Goal</label>
+      <select class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-2 text-sm">
+        <option>Accumulate (5–10y)</option>
+        <option>Tactical entry (2–8w)</option>
+        <option>Trim / Take profit</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-xs text-neutral-400">Budget</label>
+      <input class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-2 text-sm" placeholder="$500" />
+    </div>
+
+    <div>
+      <label class="text-xs text-neutral-400">Risk style</label>
+      <select class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-2 text-sm">
+        <option>Balanced</option>
+        <option>Conservative</option>
+        <option>Aggressive</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mt-5 rounded-2xl bg-sky-500/10 p-4 ring-1 ring-sky-400/20">
+    <p class="text-sm text-neutral-200 font-medium">Generated Anchors (mock)</p>
+    <div class="mt-3 grid gap-2">
+      {[
+        { k: "Anchor limit", v: "$392.00", d: "Derived from support + volatility" },
+        { k: "Safety limit", v: "$382.50", d: "If volatility expands" },
+        { k: "Take profit", v: "$418.00", d: "Optional trim target" },
+      ].map((r) => (
+        <div class="flex items-center justify-between rounded-xl bg-neutral-950/40 px-3 py-2 ring-1 ring-white/10">
+          <div>
+            <p class="text-sm">{r.k}</p>
+            <p class="text-xs text-neutral-500">{r.d}</p>
+          </div>
+          <p class="text-sm text-sky-300">{r.v}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-5 grid gap-3 sm:grid-cols-2">
+    <button class="rounded-2xl bg-white/10 px-4 py-3 text-sm font-medium hover:bg-white/15 transition">
+      Save draft
+    </button>
+    <button class="rounded-2xl bg-sky-500 px-4 py-3 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition">
+      Place limit order (mock)
+    </button>
+  </div>
+
+  <p class="mt-3 text-xs text-neutral-500">No orders are sent. This is a UI proof-of-concept.</p>
+</div>

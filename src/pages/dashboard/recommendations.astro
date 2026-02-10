@@ -1,0 +1,42 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import TickerRow from "../../components/app/TickerRow.astro";
+
+const rows = [
+  ["MSFT", "9.1", "$402", "$392", "High quality accumulation; strong cashflows", "ACCUMULATE"],
+  ["AAPL", "8.8", "$196", "$189", "Mean-reversion entry; resilient demand", "ACCUMULATE"],
+  ["AMZN", "8.6", "$172", "$166", "Long runway; buy on pullbacks", "ACCUMULATE"],
+  ["GOOGL", "8.5", "$151", "$146", "Valuation improving; steady compounding", "ACCUMULATE"],
+  ["NVDA", "8.4", "$620", "$588", "High vol; widen buffers", "WATCH"],
+];
+---
+
+<AppLayout title="TradeAnchor AI — Recommendations">
+  <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h2 class="text-lg font-semibold">Daily feed</h2>
+        <p class="mt-1 text-sm text-neutral-400">Mock ranking + anchor suggestions</p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <select class="rounded-2xl border border-white/10 bg-neutral-950/40 px-3 py-2 text-sm">
+          <option>Time horizon: 5–10 years</option>
+          <option>Time horizon: 6–24 months</option>
+          <option>Tactical: 2–8 weeks</option>
+        </select>
+        <select class="rounded-2xl border border-white/10 bg-neutral-950/40 px-3 py-2 text-sm">
+          <option>Risk: Balanced</option>
+          <option>Risk: Conservative</option>
+          <option>Risk: Aggressive</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mt-4 space-y-2">
+      {rows.map((r) => (
+        <TickerRow t={r[0]} rating={r[1]} price={r[2]} anchor={r[3]} note={r[4]} tag={r[5]} />
+      ))}
+    </div>
+  </div>
+</AppLayout>
