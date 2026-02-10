@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+
+const steps = [
+  { t: "Connect your brokerage (concept)", d: "Link an existing U.S. brokerage account to read holdings and draft limit orders." },
+  { t: "Choose a goal", d: "Accumulate high-quality stocks over 5–10 years or target tactical entries." },
+  { t: "Set your anchors", d: "We recommend limit prices using volatility + support levels and keep them updated." },
+  { t: "Review the audit trail", d: "See why a price moved and what inputs changed (mock transparency layer)." },
+];
+---
+
+<BaseLayout title="Product — TradeAnchor AI" description="How the Anchor Engine helps you buy low and sell high without chart-watching.">
+  <section class="pt-14 pb-6">
+    <h1 class="text-4xl font-semibold tracking-tight">How it works</h1>
+    <p class="mt-3 text-neutral-300 max-w-2xl">
+      TradeAnchor AI is built to reduce execution mistakes: it helps you place smarter limit orders and keeps them aligned
+      as the market moves.
+    </p>
+  </section>
+
+  <section class="py-8">
+    <div class="grid gap-4 md:grid-cols-2">
+      {steps.map((s, i) => (
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <p class="text-sm text-neutral-400">Step {i + 1}</p>
+          <p class="mt-2 text-lg font-medium">{s.t}</p>
+          <p class="mt-2 text-sm text-neutral-300">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Join the Waitlist — TradeAnchor AI" description="Get early access to TradeAnchor AI and the Academy launch.">
+  <section class="pt-14 pb-10">
+    <h1 class="text-4xl font-semibold tracking-tight">Join the waitlist</h1>
+    <p class="mt-3 text-neutral-300 max-w-2xl">
+      This is a mockup form (no backend). Wire it later to your email provider or database.
+    </p>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-2">
+      <form class="rounded-3xl border border-white/10 bg-white/5 p-6" action="#" method="post">
+        <label class="block text-sm text-neutral-300">Email</label>
+        <input
+          class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          type="email"
+          name="email"
+          placeholder="you@domain.com"
+          required
+        />
+
+        <label class="mt-4 block text-sm text-neutral-300">What are you most interested in?</label>
+        <select
+          class="mt-2 w-full rounded-2xl border border-white/10 bg-neutral-950/40 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          name="interest"
+        >
+          <option>Automated limit adjustments</option>
+          <option>Ranked buy list</option>
+          <option>Academy content</option>
+          <option>Audit trail transparency</option>
+        </select>
+
+        <button
+          class="mt-6 w-full rounded-2xl bg-sky-500 px-5 py-3 font-medium text-neutral-950 hover:bg-sky-400 transition"
+          type="submit"
+        >
+          Request access
+        </button>
+
+        <p class="mt-3 text-xs text-neutral-400">
+          By submitting, you agree to receive product updates. Unsubscribe anytime.
+        </p>
+      </form>
+
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-xl font-semibold">What you’ll get</h2>
+        <ul class="mt-4 space-y-2 text-neutral-300">
+          <li>• Early product demos & build updates</li>
+          <li>• Academy launch lessons</li>
+          <li>• Pricing & feature announcements</li>
+        </ul>
+
+        <div class="mt-6 rounded-2xl bg-sky-500/10 p-4 ring-1 ring-sky-400/20">
+          <p class="text-sm text-neutral-200">
+            Next: add a backend (Astro actions / API route) to store emails, then connect your email tool.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

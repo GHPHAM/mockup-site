@@ -1,0 +1,46 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/product", label: "Product" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/academy", label: "Academy" },
+  { href: "/about", label: "About" },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-semibold tracking-tight" transition:name="brand">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/20 ring-1 ring-sky-400/30">
+          ⚓
+        </span>
+        <span>TradeAnchor AI</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        {links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              "rounded-xl px-3 py-2 text-sm transition",
+              path === l.href ? "bg-white/10 text-white" : "text-neutral-300 hover:bg-white/5 hover:text-white",
+            ]}
+          >
+            {l.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a
+          href="/waitlist"
+          class="rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-sky-400 transition"
+        >
+          Join Waitlist
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

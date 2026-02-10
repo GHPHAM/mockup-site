@@ -1,0 +1,40 @@
+---
+const features = [
+  {
+    title: "Anchor Engine",
+    desc: "Automatically updates pending limit orders based on shifting support levels and volatility.",
+  },
+  {
+    title: "Top Recommendations Feed",
+    desc: "A curated buy list ranked by quality, valuation, and growth potential.",
+  },
+  {
+    title: "One-Tap Limit Order Setup",
+    desc: "Pick a stock, choose a goal, and generate a pre-configured limit order (mock flow).",
+  },
+  {
+    title: "Academy",
+    desc: "Friendly guides and tutorials: limit orders, margin, compounding, and risk basics.",
+  },
+];
+---
+
+<section class="py-10">
+  <div class="flex items-end justify-between gap-6">
+    <div>
+      <h2 class="text-2xl font-semibold tracking-tight">Built to reduce investor fatigue</h2>
+      <p class="mt-2 text-neutral-300 max-w-2xl">
+        Designed for “passive-active” investors who want better execution without constant monitoring.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {features.map((f) => (
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 transition">
+        <p class="font-medium">{f.title}</p>
+        <p class="mt-2 text-sm text-neutral-300">{f.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+const plans = [
+  {
+    name: "Standard",
+    price: "$9",
+    note: "/mo",
+    perks: ["Sync 1 brokerage account", "Daily recommendations feed", "Basic price health view"],
+    cta: "Start Standard",
+  },
+  {
+    name: "Pro",
+    price: "$24",
+    note: "/mo",
+    highlight: true,
+    perks: ["Unlimited accounts", "Automated limit adjustments", "Audit trail concept + advanced insights"],
+    cta: "Go Pro",
+  },
+];
+---
+
+<div class="grid gap-4 md:grid-cols-2">
+  {plans.map((p) => (
+    <div
+      class:list={[
+        "rounded-3xl border p-6",
+        p.highlight
+          ? "border-sky-400/30 bg-sky-500/10 shadow-[0_0_0_1px_rgba(56,189,248,0.15)]"
+          : "border-white/10 bg-white/5",
+      ]}
+    >
+      <div class="flex items-start justify-between">
+        <div>
+          <p class="text-lg font-semibold">{p.name}</p>
+          <p class="mt-1 text-sm text-neutral-300">For long-term wealth builders</p>
+        </div>
+        {p.highlight ? (
+          <span class="rounded-full bg-sky-400/20 px-3 py-1 text-xs text-sky-200 ring-1 ring-sky-400/20">
+            Most popular
+          </span>
+        ) : null}
+      </div>
+
+      <div class="mt-6 flex items-end gap-2">
+        <p class="text-4xl font-semibold">{p.price}</p>
+        <p class="text-neutral-300">{p.note}</p>
+      </div>
+
+      <ul class="mt-6 space-y-2 text-sm text-neutral-300">
+        {p.perks.map((perk) => (
+          <li class="flex gap-2">
+            <span class="text-sky-300">✓</span>
+            <span>{perk}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a href="/waitlist" class="mt-8 inline-flex w-full justify-center rounded-2xl bg-white/10 px-4 py-3 font-medium hover:bg-white/15 transition">
+        {p.cta}
+      </a>
+    </div>
+  ))}
+</div>

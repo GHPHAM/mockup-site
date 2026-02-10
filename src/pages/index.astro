@@ -1,17 +1,17 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import FeatureGrid from "../components/FeatureGrid.astro";
+import CTA from "../components/CTA.astro";
+import FAQ from "../components/FAQ.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="TradeAnchor AI — Automated Limit Orders for Long-Term Investors"
+  description="Reduce investor fatigue with adaptive limit orders and a ranked buy list for long-term accumulation."
+>
+  <Hero />
+  <FeatureGrid />
+  <CTA />
+  <FAQ />
+</BaseLayout>

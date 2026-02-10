@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout title="About — TradeAnchor AI" description="A platform concept built to solve investor fatigue for U.S. retail investors.">
+  <section class="pt-14 pb-6">
+    <h1 class="text-4xl font-semibold tracking-tight">About</h1>
+    <p class="mt-3 text-neutral-300 max-w-2xl">
+      TradeAnchor AI targets the gap between human execution mistakes and institutional-grade discipline—without requiring
+      you to become a full-time trader.
+    </p>
+  </section>
+
+  <section class="py-8">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <h2 class="text-xl font-semibold">Who it’s for</h2>
+      <ul class="mt-4 space-y-2 text-neutral-300">
+        <li>• “Passive-active” investors who want better-than-average execution</li>
+        <li>• Limit order novices who know “buy the dip” but not the price</li>
+        <li>• Long-term wealth builders accumulating quality over 5–10 years</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-semibold">Core idea</h2>
+      <p class="mt-3 text-neutral-300">
+        Use ranking + technical anchoring to suggest limit prices, then adapt those orders as conditions change.
+      </p>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>
